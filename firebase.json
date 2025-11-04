@@ -1,0 +1,62 @@
+{
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs20"
+  },
+  "hosting": {
+    "public": "web/dist",
+    "ignore": [
+      "firebase.json",
+      "**/inity*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/startSession",
+        "function": "startSession"
+      },
+      {
+        "source": "/api/ingest",
+        "function": "ingest"
+      },
+      {
+        "source": "/api/chat",
+        "function": "chat"
+      },
+      {
+        "source": "/api/endSession",
+        "function": "endSession"
+      },
+      {
+        "source": "/api/search",
+        "function": "search"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "emulators": {
+    "functions": {
+      "port": 5001
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "firestore": {
+      "port": 8081
+    },
+    "auth": {
+      "port": 9099
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
+  }
+}

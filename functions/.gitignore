@@ -1,0 +1,5 @@
+node_modules/
+lib/
+.env.*
+*.log
+./docbot-fa160-firebase-adminsdk-fbsvc-da5db32f1c.json
